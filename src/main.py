@@ -1,11 +1,6 @@
 from fastapi import FastAPI
 
+import src.iris
+
 app = FastAPI()
-
-@app.get("/")
-def root() -> dict:
-    return {"status" : "success"}
-
-@app.get("/hola")
-def hola() -> str:
-    return "Hola!"
+app.include_router(src.iris.router)
